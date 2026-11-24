@@ -2,19 +2,24 @@ import {BrowserRouter,Routes,Route} from 'react-router-dom'
 
 import Home from './pages/Home'
 import Login from './pages/Login'
-import BookStore from './pages/BookStore'
+import Cart from './pages/Cart'
+import { CartProvider } from './context/CartContext'
+import Greating from './pages/Greating'
 
 function App() {
 
   return (
     <>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/test" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/" element={<BookStore />} />
-        </Routes>
-      </BrowserRouter>
+      <CartProvider>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/test" element={<Greating />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+          </Routes>
+        </BrowserRouter>
+      </CartProvider>
      </>
   )
 }
